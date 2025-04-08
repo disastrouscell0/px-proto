@@ -1,11 +1,50 @@
+'use client'
+
 import Image from "next/image";
+import React, { useState } from 'react';
 import Header from '@/components/Header';
+import TabContainer from "@/components/fileUpload/TabContainer";
+import ConfirmFields from "@/components/fileUpload/ConfirmFields";
 
 export default function Home() {
+  const [csvData, setCsvData] = useState({
+    data: [],
+    fields: [],
+    year: 0
+  });
+  const [idHeaders, setIdHeaders] = useState({
+    responseIdHeader: "",
+    tutorHeader: "",
+    placementHeader: "",
+  })
+
+
   return (
     <>
     <Header />
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <main className="h-screen px-7 py-4 flex flex-col gap-5 bg-stone-100">
+      <div className="bg-slate-200 px-5 py-3 rounded-xl outline-1 outline-slate-400">
+        <TabContainer onParseCSV={ setCsvData } />
+      </div>
+      <div className="bg-slate-200 px-5 py-3 rounded-xl outline-1 outline-slate-400">
+        <ConfirmFields csvData={ csvData } 
+        idHeaders={ idHeaders }
+        setIdHeaders={ setIdHeaders } />
+      </div>
+      <div className="flex flex-col gap-2 bg-slate-200 px-5 py-3 rounded-xl outline-1 outline-slate-400">
+        <p>3. Import</p>
+        <button 
+          className={`mx-3 px-6 py-1 
+            enabled:text-blue-700 enabled:bg-slate-300 
+            enabled:hover:cursor-pointer
+            disabled:text-red-600 disabled:bg-orange-200
+            rounded-full`}
+          disabled={ !(csvData && idHeaders.responseIdHeader && idHeaders.tutorHeader && idHeaders.placementHeader) }
+          onClick={() => console.log(`${JSON.stringify(idHeaders)}`)
+          }>Import</button>
+      </div>
+    </main>
+    {/* <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
         <Image
           className="dark:invert"
@@ -101,7 +140,7 @@ export default function Home() {
           Go to nextjs.org →
         </a>
       </footer>
-    </div>
+    </div> */}
     </>
   );
 }
