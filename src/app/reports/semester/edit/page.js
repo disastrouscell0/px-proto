@@ -1,6 +1,6 @@
-'use client'
+// 'use client'
 
-import React, { useEffect } from 'react';
+// import React, { useEffect } from 'react';
 import Header from '@/components/Header';
 
 const EditReport = () => {
@@ -125,15 +125,18 @@ Several quotes:
     • Maybe there should be a script for the colour game.
     • If it was closer to the first session so we did not need to take time at the start to recap the first session and could get straight into building on our learning.`
 
-    useEffect(() => {
-        document.getElementById('area').innerHTML = text.replace(/\n/g, '<br>');
-    }, [])
+    // useEffect(() => {
+    //     document.getElementById('area').innerHTML = text.replace(/\n/g, '<br>');
+    // }, [])
     return (
         <>
         <Header />
         <main>
         <textarea className='w-screen h-screen whitespace-pre-line wrap-break-word'
-        id='area'/>    
+        defaultValue={text}
+        id='area'/>
+        <button className='mx-3 px-6 py-1 
+            enabled:text-blue-700 enabled:bg-slate-300 hover:cursor-pointer rounded-full'>Save</button>
         </main>
         </>
     );

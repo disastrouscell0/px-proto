@@ -100,10 +100,14 @@ const SemesterReport = () => {
     <li>Align better with learning outcomes.</li>
   </ul>
     <br/>
+    
+    <div className='flex flex-row min-h-scren justify-center items-center'>
     <button className='mx-3 px-6 py-1 
             enabled:text-blue-700 enabled:bg-slate-300 
             enabled:hover:cursor-pointer rounded-full'>Export as PDF</button>
-    <Link href='/reports/semester/edit'>Edit</Link>
+    <br/>
+    <Link href='/reports/semester/edit' className='mx-7 px-7 py-2 text-blue-700 bg-slate-300 text-l rounded-full'>Edit</Link>
+    </div>
     </>
     );
 }
