@@ -8,7 +8,7 @@ const Header = () => {
             <div />
             <div className='flex items-center gap-4'>
                 <Link href='/reports'>Reports</Link>
-                <button className='px-2 py-1 bg-stone-800 text-stone-50'>Import</button>
+                <button className='px-5 py-1 bg-stone-800 text-stone-50 rounded-md'>Import</button>
             </div>
         </header>
     );
