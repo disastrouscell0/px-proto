@@ -6,6 +6,7 @@ const SemesterReport = () => {
     return (
         <>
         <Header />
+        <main className='p-8'>
           <h1 className='font-bold text-3xl'>MIC Y2 EVALUATION REPORT - SEMESETER 2</h1>
   <p><strong>Respondents:</strong> 80 (Response Rate: 61%)</p>
 
@@ -108,6 +109,7 @@ const SemesterReport = () => {
     <br/>
     <Link href='/reports/semester/edit' className='mx-7 px-7 py-2 text-blue-700 bg-slate-300 text-l rounded-full'>Edit</Link>
     </div>
+    </main>
     </>
     );
 }
